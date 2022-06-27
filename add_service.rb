@@ -10,13 +10,13 @@ def add_service(option)
 end
 
 def add_book
-  puts "This is for adding a book"
+  puts 'This is for adding a book'
 end
 
 def add_music_album
-  puts "This is for adding a music album"
+  puts 'This is for adding a music album'
 end
 
 def add_game
-  puts "This is for adding a game"
+  puts 'This is for adding a game'
 end

@@ -2,6 +2,7 @@
 
 require_relative 'app'
 require_relative 'list_service'
+require_relative 'add_service'
 
 @my_app = App.new
 
