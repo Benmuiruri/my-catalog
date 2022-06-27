@@ -26,3 +26,20 @@ def app_description
   puts '9 - Add a game'
   puts '10 - Exit'
 end
+
+def select_option(option)
+  case option
+  when 1..6
+    list_service(option)
+    main
+  when 7..9
+    create_service(option)
+    main
+  when 10
+    puts 'Goodbye'
+    exit
+  else
+    puts 'Choose a correct option'
+    main
+  end
+end
