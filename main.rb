@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative 'app'
+require_relative 'list_service'
 
 @my_app = App.new
 
@@ -43,3 +44,5 @@ def select_option(option)
     main
   end
 end
+
+main
