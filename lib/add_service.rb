@@ -14,7 +14,10 @@ def add_book
 end
 
 def add_music_album
-  puts 'This is for adding a music album'
+  puts 'Awesome Let\'s add a music album 🎶'
+  sleep 0.5
+  print 'Enter the name of the artist'
+  
 end
 
 def add_game
