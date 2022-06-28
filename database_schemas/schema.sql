@@ -29,6 +29,6 @@ CREATE TABLE music_album (
   CONSTRAINT genre_fk FOREIGN KEY (genre_id) REFERENCES genre(id)
 )
 
-CREATE INDEX genre_id_asc ON musicalbum(genre_id ASC);
+CREATE INDEX genre_id_asc ON music_album(genre_id ASC);
 Create INDEX genre_id_asc ON items(genre_id ASC);
 
