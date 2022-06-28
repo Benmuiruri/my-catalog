@@ -7,6 +7,6 @@ class MusicAlbum < Item
     super(publish_date)
     @album_name = album_name
     @artist_name = artist_name
-    on_spotify = on_spotify
+    @on_spotify = on_spotify
   end
 end

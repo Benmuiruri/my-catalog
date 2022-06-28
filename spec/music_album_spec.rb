@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe MusicAlbum do
   before :each do
-    @music_album = MusicAlbum.new('Carter 3', 'Lil Wayne','10/02/2013', true)
+    @music_album = MusicAlbum.new('Carter 3', 'Lil Wayne', '10/02/2013', true)
   end
 
   context 'When creating @music_album, an instance of class MusicAlbum ' do

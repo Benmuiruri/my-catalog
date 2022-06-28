@@ -1,51 +1,8 @@
-#!/usr/bin/env ruby
-
-require_relative './lib/app'
-require_relative './lib/list_service'
-require_relative './lib/add_service'
-
-@my_app = App.new
+require_relative './modules/app'
 
 def main
-  app_description
-
-  option = gets.chomp.to_i
-
-  select_option(option)
-end
-
-def app_description
-  puts "------------------------------
-  Welcome to The Catalog of Items!
-  ---------------------------------\n\n"
-  puts 'Please choose an option by entering a number:'
-  puts '1 - List all books'
-  puts '2 - List all music albums'
-  puts '3 - List all games'
-  puts '4 - List all genres'
-  puts '5 - List all labels'
-  puts '6 - List all authors'
-  puts '7 - Add a book'
-  puts '8 - Add a music album'
-  puts '9 - Add a game'
-  puts '10 - Exit'
-end
-
-def select_option(option)
-  case option
-  when 1..6
-    list_service(option)
-    main
-  when 7..9
-    add_service(option)
-    main
-  when 10
-    puts 'Goodbye'
-    exit
-  else
-    puts 'Choose a correct option'
-    main
-  end
+  app = App.new
+  app.run
 end
 
 main
