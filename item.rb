@@ -3,7 +3,7 @@ require 'date'
 class Item
   def initialize(publish_date, archived: false, id: rand(1..1000))
     @id = id
-    @publish_date = Date.strptime(publish_date,'%m/%d/%Y')
+    @publish_date = Date.strptime(publish_date, '%m/%d/%Y')
     @archived = archived
   end
 
@@ -14,6 +14,6 @@ class Item
   private
 
   def can_be_archived?
-   Time.now.year - @publish_date.year > 10
+    Time.now.year - @publish_date.year > 10
   end
 end
