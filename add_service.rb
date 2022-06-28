@@ -1,10 +1,10 @@
 def add_service(option)
   case option
-  when 3
+  when 7
     add_book
-  when 4
+  when 8
     add_music_album
-  when 5
+  when 9
     add_game
   end
 end

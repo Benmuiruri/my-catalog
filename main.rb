@@ -35,7 +35,7 @@ def select_option(option)
     list_service(option)
     main
   when 7..9
-    create_service(option)
+    add_service(option)
     main
   when 10
     puts 'Goodbye'
