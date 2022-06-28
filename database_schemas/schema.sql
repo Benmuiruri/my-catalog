@@ -13,4 +13,22 @@ CREATE TABLE music_albums (
   CONSTRAINT genre_fk FOREIGN KEY (genre_id) REFERENCES genres(id)
 );
 
+CREATE TABLE labels (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY, 
+    title VARCHAR(100) NOT NULL, 
+    color VARCHAR(100) NOT NULL,
+    items TEXT [] 
+);
+
+CREATE TABLE books (
+    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    publish_date DATE NOT NULL,           
+    archived  BOOLEAN NOT NULL,
+    publisher VARCHAR(100) NOT NULL,
+    cover_state VARCHAR(100) NOT NULL,
+    label_id int,
+    CONSTRAINT label_fk FOREIGN KEY (label_id) REFERENCES labels(id)
+);
+
 CREATE INDEX genre_id_asc ON music_albums(genre_id ASC);
+CREATE INDEX label_id_asc ON books(label_id ASC);
