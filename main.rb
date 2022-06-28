@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require_relative 'app'
-require_relative 'list_service'
-require_relative 'add_service'
+require_relative './lib/app'
+require_relative './lib/list_service'
+require_relative './lib/add_service'
 
 @my_app = App.new
 
@@ -15,7 +15,9 @@ def main
 end
 
 def app_description
-  puts "Welcome to My Catalog!\n\n"
+  puts "------------------------------
+  Welcome to The Catalog of Items!
+  ---------------------------------\n\n"
   puts 'Please choose an option by entering a number:'
   puts '1 - List all books'
   puts '2 - List all music albums'
