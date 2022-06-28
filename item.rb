@@ -1,17 +1,19 @@
+require 'date'
+
 class Item
   def initialize(publish_date, archived: false, id: rand(1..1000))
     @id = id
-    @publish_date = publish_date
+    @publish_date = Date.strptime(publish_date,'%m/%d/%Y')
     @archived = archived
   end
 
   def move_to_archive
-    puts 'Will move item to archive' if can_be_archived?
+    can_be_archived? && @archived = true
   end
 
   private
 
   def can_be_archived?
-    puts 'Will check whether item can be archived'
+   Time.now.year - @publish_date.year > 10
   end
 end
