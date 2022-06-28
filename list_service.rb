@@ -2,22 +2,16 @@ def list_service(option)
   case option
   when 1
     list_all_books
-    main
   when 2
     list_all_music_albums
-    main
   when 3
     list_all_games
-    main
   when 4
     list_all_genres
-    main
   when 5
     list_all_labels
-    main
   when 6
     list_all_authors
-    main
   end
 end
 
