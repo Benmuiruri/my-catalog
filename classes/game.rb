@@ -13,10 +13,4 @@ class Game < Item
   end
 
   private
-
-  def can_be_archived?
-    current_year = Time.new.year
-    seniority = current_year - @last_played_at
-    super && seniority > 2
-  end
 end
