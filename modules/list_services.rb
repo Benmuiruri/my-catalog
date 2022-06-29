@@ -1,3 +1,6 @@
+require 'json'
+require_relative './app'
+
 module ListServices
   def list_service(option)
     case option
@@ -20,8 +23,23 @@ module ListServices
     puts 'These are all the books'
   end
 
+  def read_music_album_data
+    File.write('./json_files/music_albums.json', '[]') unless File.exist?('./json_files/music_albums.json')
+    _music_albums = JSON.parse(File.read('./json_files/music_albums.json'))
+  end
+
   def list_all_music_albums
-    puts 'These are all the music albums'
+    music_albums = read_music_album_data
+    if music_albums.empty?
+      puts "There are no music albums in the catalog, please add some music albums\n"
+    else
+      puts "Loading list of music albums in the catalog...\n"
+      sleep 0.75
+      music_albums.each_with_index do |music_album, index|
+        puts "#{index + 1}) Album Name: #{music_album['album_name']}  Album Genre: #{music_album['genre']}
+        Artist Name: #{music_album['artist_name']}  Released on: #{music_album['publish_date']}\n\n"
+      end
+    end
   end
 
   def list_all_games
@@ -29,7 +47,14 @@ module ListServices
   end
 
   def list_all_genres
-    puts 'These are all the genres'
+    music_albums = read_music_album_data
+    if music_albums.empty?
+      puts "There are no genres in the catalog, please add some music albums\n"
+    else
+      music_albums.each_with_index do |music_album, index|
+        puts "#{index + 1}) Genre Name: #{music_album['genre']}"
+      end
+    end
   end
 
   def list_all_labels

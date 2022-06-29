@@ -5,7 +5,6 @@ require 'pry'
 
 module MusicAlbumServices
   include SaveData
-
   def music_album_data(input)
     output = ''
     while output.empty?
@@ -48,6 +47,7 @@ module MusicAlbumServices
   end
 
   def add_music_album
+    music_albums = []
     album_name = music_album_data('Name')
     artist_name = music_album_data('Artist Name')
     publish_date = music_album_publish_date('Publish Date')
@@ -58,6 +58,7 @@ module MusicAlbumServices
     puts "The music album #{album_name} was created successfully"
     genre = Genre.new(genre_name)
     music_album.add_genre(genre)
-    SaveData.save_book
+    music_albums << music_album
+    SaveData.save_music_albums(music_albums)
   end
 end

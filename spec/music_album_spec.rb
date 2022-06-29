@@ -3,7 +3,7 @@ require 'date'
 
 describe MusicAlbum do
   before :each do
-    @music_album = MusicAlbum.new('Carter 3', 'Lil Wayne', '10/02/2018', true)
+    @music_album = MusicAlbum.new('Carter 3', 'Lil Wayne', '2018-02-10', true)
   end
 
   context 'When creating @music_album, an instance of class MusicAlbum ' do
