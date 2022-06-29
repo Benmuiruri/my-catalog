@@ -32,3 +32,16 @@ CREATE TABLE books (
 
 CREATE INDEX genre_id_asc ON music_albums(genre_id ASC);
 CREATE INDEX label_id_asc ON books(label_id ASC);
+
+CREATE TABLE authors (
+    id INT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE games (
+    id INT PRIMARY KEY,
+    multiplayer VARCHAR(100),
+    last_played_at DATE,
+    FOREIGN KEY(item_id) REFERENCES items(id)
+);
