@@ -25,7 +25,7 @@ module ListServices
 
   def read_music_album_data
     File.write('./json_files/music_albums.json', '[]') unless File.exist?('./json_files/music_albums.json')
-    music_albums = JSON.parse(File.read('./json_files/music_albums.json'))
+    _music_albums = JSON.parse(File.read('./json_files/music_albums.json'))
   end
 
   def list_all_music_albums
@@ -51,8 +51,8 @@ module ListServices
     if music_albums.empty?
       puts "There are no genres in the catalog, please add some music albums\n"
     else
-      music_albums.each_with_index do |music_albums, index|
-        puts "#{index + 1}) Genre Name: #{music_albums['genre']}"
+      music_albums.each_with_index do |music_album, index|
+        puts "#{index + 1}) Genre Name: #{music_album['genre']}"
       end
     end
   end
