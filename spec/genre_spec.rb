@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Genre do
   before :all do
-    @music_album = MusicAlbum.new('Carter 3', 'Lil Wayne', '10/02/2013', true)
+    @music_album = MusicAlbum.new('Carter 3', 'Lil Wayne', '2013-02-10', true)
     @genre = Genre.new('Hip hop')
   end
 
