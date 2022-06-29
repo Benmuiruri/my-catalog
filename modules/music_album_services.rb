@@ -1,4 +1,3 @@
-require 'pry'
 require_relative '../lib/music_album'
 require_relative '../lib/genre'
 require_relative 'save_data'
@@ -36,7 +35,6 @@ module MusicAlbumServices
     puts "The music album #{album_name} created successfully"
     genre = Genre.new(genre_input)
     music_album.add_genre(genre)
-    binding.pry
     SaveData.save_book
   end
 end
