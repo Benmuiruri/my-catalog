@@ -1,6 +1,9 @@
 require 'date'
 
 class Item
+  attr_reader :id, :archived
+  attr_accessor :publish_date
+
   def initialize(publish_date, archived: false, id: rand(1..1000))
     @id = id
     @publish_date = Date.strptime(publish_date, '%m/%d/%Y')
