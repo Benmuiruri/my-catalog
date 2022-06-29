@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'date'
 
 describe MusicAlbum do
   before :each do
@@ -15,6 +16,16 @@ describe MusicAlbum do
     it 'returns the correct name' do
       expected_value = 'Carter 3'
       expect(@music_album.album_name).to eq(expected_value)
+    end
+  end
+
+  context 'When archiving a music_album' do
+    it 'archives the music album' do
+      current_year = Time.now.year
+      album_publish_year = @music_album.publish_date.year
+      expected_value = 'Carter 3'
+      can_be_archived = @music_album.can_be_archived?
+      expect(can_be_archived).to be_truthy
     end
   end
 end

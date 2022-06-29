@@ -1,6 +1,7 @@
 require_relative '../lib/music_album'
 require_relative '../lib/genre'
 require_relative 'save_data'
+require 'pry'
 
 module MusicAlbumServices
   include SaveData
@@ -29,6 +30,7 @@ module MusicAlbumServices
 
     on_spotify = on_spotify_input == 'y'
     music_album = MusicAlbum.new(album_name, artist_name, publish_date, on_spotify)
+    binding.pry
     puts "The music album #{album_name} created successfully"
     genre = Genre.new(genre_input)
     music_album.add_genre(genre)
