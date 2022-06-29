@@ -6,8 +6,10 @@ require 'pry'
 module MusicAlbumServices
   include SaveData
   def add_music_album
+    music_albums = []
     correct_input = false
     genre_input = ''
+
     print 'Enter the name of the album:'
     album_name = gets.chomp
     print 'Enter the name of the artist: '
@@ -33,6 +35,7 @@ module MusicAlbumServices
     puts "The music album #{album_name} created successfully"
     genre = Genre.new(genre_input)
     music_album.add_genre(genre)
-    SaveData.save_book
+    music_albums << music_album
+    SaveData.save_music_albums(music_albums)
   end
 end
