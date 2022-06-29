@@ -5,22 +5,19 @@ require_relative 'save_data'
 module MusicAlbumServices
   include SaveData
   def add_music_album
-    on_spotify = false
     correct_input = false
     genre_input = ''
-    puts 'Awesome Let\'s add a music album 🎶'
-    sleep 0.5
     print 'Enter the name of the album:'
     album_name = gets.chomp
     print 'Enter the name of the artist: '
     artist_name = gets.chomp
     print 'Enter music album publish date (mm/dd/yyyy): '
     publish_date = gets.chomp
-    
-    until !genre_input.empty?
+
+    while genre_input.empty?
       print 'Enter genre of the music album: '
       genre_input = gets.chomp
-      puts "Genre name cannot be blank, please enter a valid genre name" if genre_input.empty?
+      puts 'Genre name cannot be blank, please enter a valid genre name' if genre_input.empty?
     end
 
     until correct_input

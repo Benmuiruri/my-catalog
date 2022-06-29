@@ -39,6 +39,8 @@ class App
     when 7
       add_book
     when 8
+      puts 'Awesome Let\'s add a music album 🎶'
+      sleep 0.5
       add_music_album
     when 9
       add_game
