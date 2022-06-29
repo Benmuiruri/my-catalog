@@ -6,7 +6,7 @@ describe Genre do
   end
 
   before :each do
-    @genre = Genre.new('Hip hop', @music_album)
+    @genre = Genre.new('Hip hop')
   end
 
   context 'When creating @genre, an instance of class Genre ' do
@@ -15,10 +15,10 @@ describe Genre do
     end
   end
 
-  context 'When retrieving the name of a music_album in a genre' do
-    it 'returns the correct name of a music album in a certain genre' do
-      expected_value = 'Carter 3'
-      expect(@genre.music_album.album_name).to eq(expected_value)
-    end
-  end
+  # context 'When retrieving the name of a music_album in a genre' do
+  #   it 'returns the correct name of a music album in a certain genre' do
+  #     expected_value = 'Carter 3'
+  #     expect(@genre.music_album.album_name).to eq(expected_value)
+  #   end
+  # end
 end

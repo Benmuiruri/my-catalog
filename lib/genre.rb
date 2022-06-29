@@ -1,9 +1,12 @@
 class Genre
-  def initialize(name, music_album)
+  def initialize(name)
     @id = rand(1..1000)
     @name = name
-    @music_album = music_album
+    @items = []
+  end
 
-    @music_album.items << self
+  def add_item(item)
+    @items << item
+    item.add_genre(self)
   end
 end
