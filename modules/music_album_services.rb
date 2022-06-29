@@ -11,11 +11,10 @@ module MusicAlbumServices
     sleep 0.5
     print 'Enter the name of the album:'
     album_name = gets.chomp
-    print 'Enter the name of the artist:'
+    print 'Enter the name of the artist: '
     artist_name = gets.chomp
-    print 'Enter music album publish date (mm/dd/yyyy):'
+    print 'Enter music album publish date (mm/dd/yyyy): '
     publish_date = gets.chomp
-
     until correct_input
       print 'Is the album on Spotify [Y/N]:'
       on_spotify_input = gets.chomp.downcase
