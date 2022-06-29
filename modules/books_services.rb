@@ -1,5 +1,6 @@
 require_relative '../lib/book'
 require_relative '../lib/label'
+require 'date'
 
 module BooksServices
   def get_input_label(input)
@@ -22,14 +23,28 @@ module BooksServices
     output
   end
 
+  def valid_date_string?(input)
+    return false unless input.is_a?(String)  
+    return false unless input =~ /\A\d+-\d+-\d+\z/
+    parts = input.split('-').map(&:to_i)
+    Date.valid_date?(*parts)
+  end
+
+  def get_valid_date
+    loop do
+      print 'Enter book publish date (yyyy-mm-dd): '
+      input_date = gets.chomp
+      return input_date if valid_date_string?(input_date)
+      puts "Invalid date given. Please try again..."
+    end
+    input_date
+  end
+
   def add_book
     book_name = get_input_book('name')
     publisher_name = get_input_book('publisher name')
     cover_state = get_input_book('cover state')
-
-    print 'Enter book publish date (mm/dd/yyyy): '
-    publish_date = gets.chomp
-
+    publish_date = get_valid_date
     label_color = get_input_label('color')
     label_title = get_input_label('title')
 
