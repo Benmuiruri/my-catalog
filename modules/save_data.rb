@@ -14,6 +14,6 @@ module SaveData
     music_albums_array = music_albums.map do |music_album|
     { class_instance: 'MusicAlbum', id: music_album.id, album_name: music_album.album_name, artist_name: music_album.artist_name, publish_date: music_album.publish_date, on_spotify: music_album.on_spotify, genre: music_album.genre.name }
   end
-  File.write('./json_files/books.json', JSON.generate(music_albums_array))
+  File.write('./json_files/music_albums.json', JSON.generate(music_albums_array))
   end
 end
