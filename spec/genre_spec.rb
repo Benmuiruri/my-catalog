@@ -21,7 +21,7 @@ describe Genre do
 
   context 'When adding a music album into a genre' do
     it 'adds the music album into a specific genre' do
-      @genre.add_music_album(@music_album)
+      @genre.add_album_to_items(@music_album)
       expect(@genre.items).to include(@music_album)
     end
   end
