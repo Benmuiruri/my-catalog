@@ -1,12 +1,12 @@
 require 'date'
 
 class Item
-  attr_reader :id, :archived, :genre
+  attr_reader :id, :archived, :label, :genre
   attr_accessor :publish_date
 
   def initialize(publish_date, archived: false, id: rand(1..1000))
     @id = id
-    @publish_date = Date.strptime(publish_date, '%m/%d/%Y')
+    @publish_date = Date.strptime(publish_date, '%Y-%m-%d')
     @archived = archived
   end
 
@@ -17,6 +17,10 @@ class Item
   def add_genre(genre)
     @genre = genre
     genre.items << self unless genre.items.include?(self)
+
+  def add_label(label)
+    @label = label
+    label.items << self unless label.items.include?(self)
   end
 
   private

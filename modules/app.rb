@@ -37,6 +37,8 @@ class App
     when 1..6
       list_service(option)
     when 7
+      puts 'Awesome Let\'s add a book 📖'
+      sleep 0.5
       add_book
     when 8
       puts 'Awesome Let\'s add a music album 🎶'
