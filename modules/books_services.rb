@@ -2,9 +2,8 @@ require_relative '../lib/book'
 require_relative '../lib/label'
 
 module BooksServices
-
   def get_input_label(input)
-    output=''
+    output = ''
     while output.empty?
       print "Enter #{input} of the label for the book: "
       output = gets.chomp
@@ -14,7 +13,7 @@ module BooksServices
   end
 
   def get_input_book(input)
-    output=''
+    output = ''
     while output.empty?
       print "Enter the #{input} of the book: "
       output = gets.chomp
@@ -30,9 +29,9 @@ module BooksServices
 
     print 'Enter book publish date (mm/dd/yyyy): '
     publish_date = gets.chomp
-    
+
     label_color = get_input_label('color')
-    label_title= get_input_label('title')
+    label_title = get_input_label('title')
 
     book = Book.new(book_name, publisher_name, cover_state, publish_date)
     puts "Book #{book_name} created successfully"
