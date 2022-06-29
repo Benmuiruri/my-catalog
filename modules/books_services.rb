@@ -24,18 +24,20 @@ module BooksServices
   end
 
   def valid_date_string?(input)
-    return false unless input.is_a?(String)  
+    return false unless input.is_a?(String)
     return false unless input =~ /\A\d+-\d+-\d+\z/
+
     parts = input.split('-').map(&:to_i)
     Date.valid_date?(*parts)
   end
 
-  def get_valid_date
+  def valid_date
     loop do
       print 'Enter book publish date (yyyy-mm-dd): '
       input_date = gets.chomp
       return input_date if valid_date_string?(input_date)
-      puts "Invalid date given. Please try again..."
+
+      puts 'Invalid date given. Please try again...'
     end
     input_date
   end
@@ -44,7 +46,7 @@ module BooksServices
     book_name = get_input_book('name')
     publisher_name = get_input_book('publisher name')
     cover_state = get_input_book('cover state')
-    publish_date = get_valid_date
+    publish_date = valid_date
     label_color = get_input_label('color')
     label_title = get_input_label('title')
 
