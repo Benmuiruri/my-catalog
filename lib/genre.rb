@@ -7,7 +7,7 @@ class Genre
     @items = []
   end
 
-  def add_album_to_items(music_album)
+  def add_items(music_album)
     @items << music_album
     music_album.add_genre(self)
   end
