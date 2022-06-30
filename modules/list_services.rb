@@ -19,8 +19,24 @@ module ListServices
     end
   end
 
+  def read_book_data
+    File.write('./json_files/books.json', '[]') unless File.exist?('./json_files/books.json')
+    JSON.parse(File.read('./json_files/books.json'))
+  end
+
   def list_all_books
-    puts 'These are all the books'
+    books = read_book_data
+    if books.empty?
+      puts "There are no books in the catalog, please add some books\n"
+    else
+      puts "Loading list of books in the catalog...\n"
+      sleep 0.75
+      books.each_with_index do |book, index|
+        puts "#{index + 1}) Book Name: #{book['name']} || Book publisher: #{book['publisher']} ||
+        \r   Cover state: #{book['cover_state']} || Label title: #{book['label_title']} ||
+        \r   Label color: #{book['label_color']} || Released on: #{book['publish_date']} ||\n\n"
+      end
+    end
   end
 
   def read_music_album_data
