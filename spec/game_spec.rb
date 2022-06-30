@@ -1,22 +1,35 @@
-require '../lib/game'
-
+require 'spec_helper'
+​
 describe Game do
   before :each do
-    @game = Game.new(true, '2022', '2015-01-10')
+    @game = Game.new('football', 'Ali', '2018-01-01', '2010-12-14')
   end
-
-  it 'should detect the game publish_date to be 2015' do
-    expect(@game.publish_date.to_i).to eq 2015
+​
+  context 'When creating @game, an instance of class Game ' do
+    it 'takes four parameters and return a Game object' do
+      expect(@game).to be_instance_of Game
+    end
   end
-
-  it 'should detect the game last played date to be 2022' do
-    expect(@game.last_played_at).to eq '2022'
+​
+  context 'When retrieving the name of a game' do
+    it 'returns the correct name' do
+      expected_value = 'football'
+      expect(@game.name).to eq(expected_value)
+    end
   end
-
-  context 'Testing can_be_archived?' do
-    it 'should return false' do
-      @game.last_played_at = 2021
-      expect(@game.send(:can_be_archived?)).to be false
+​
+  context 'When archiving a game' do
+    it 'archives the game' do
+      can_be_archived = @game.can_be_archived?
+      expect(can_be_archived).to be_truthy
+    end
+  end
+​
+  context 'When archiving a game not played for more than 2 years' do
+    it 'is not archivable' do
+      @game.last_played_at = Date.strptime('2022-02-10', '%Y-%m-%d')
+      can_be_archived = @game.can_be_archived?
+      expect(can_be_archived).to be_falsey
     end
   end
 end
