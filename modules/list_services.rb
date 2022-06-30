@@ -11,9 +11,9 @@ module ListServices
     when 3
       list_all_games
     when 4
-      list_all_genres
-    when 5
       list_all_labels
+    when 5
+      list_all_genres
     when 6
       list_all_authors
     end
