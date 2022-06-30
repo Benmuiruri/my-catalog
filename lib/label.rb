@@ -8,7 +8,7 @@ class Label
     @items = []
   end
 
-  def add_book_to_items(book)
+  def add_items(book)
     @items.push(book)
     book.add_label(self)
   end
