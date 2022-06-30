@@ -22,7 +22,21 @@ describe MusicAlbum do
   context 'When archiving a music_album' do
     it 'archives the music album' do
       can_be_archived = @music_album.can_be_archived?
+      expect(can_be_archived).to be_falsey
+    end
+  end
+
+  context 'When archiving a music_album older than 10 years' do
+    it 'is not archivable' do
+      @music_album.publish_date = Date.strptime('2003-02-10', '%Y-%m-%d')
+      can_be_archived = @music_album.can_be_archived?
       expect(can_be_archived).to be_truthy
+    end
+  end
+
+  context 'When checking if music_album is on spotify' do
+    it 'should be true' do
+      expect(@music_album.on_spotify).to be_truthy
     end
   end
 end

@@ -29,7 +29,7 @@ class App
     puts '7 - Add a book'
     puts '8 - Add a music album'
     puts '9 - Add a game'
-    puts '10 - Exit'
+    puts '0 - Exit'
   end
 
   def select_option(option)
@@ -46,8 +46,10 @@ class App
       add_music_album
     when 9
       add_game
-    when 10
-      puts 'Goodbye'
+    when 0
+      puts "Thank you for using the Catalog of Items\n"
+      sleep 0.5
+      puts 'Goodbye, See you next Time'
       exit
     else
       puts 'Please enter a correct option'
