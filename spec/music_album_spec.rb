@@ -33,4 +33,10 @@ describe MusicAlbum do
       expect(can_be_archived).to be_falsey
     end
   end
+
+  context 'When checking if music_album is on spotify' do
+    it 'should be true' do
+      expect(@music_album.on_spotify).to be_truthy
+    end
+  end
 end
