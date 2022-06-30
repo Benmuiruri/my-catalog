@@ -36,7 +36,7 @@ CREATE INDEX label_id_asc ON books(label_id ASC);
 CREATE TABLE authors (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL
+    last_name VARCHAR(100) NOT NULL,
 );
 
 CREATE TABLE games (
