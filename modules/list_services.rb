@@ -19,13 +19,13 @@ module ListServices
     end
   end
 
-  def read_book_data
+  def read_books_data
     File.write('./json_files/books.json', '[]') unless File.exist?('./json_files/books.json')
     JSON.parse(File.read('./json_files/books.json'))
   end
 
   def list_all_books
-    books = read_book_data
+    books = read_books_data
     if books.empty?
       puts "There are no books in the catalog, please add some books\n"
     else
@@ -74,7 +74,14 @@ module ListServices
   end
 
   def list_all_labels
-    puts 'These are all the labels'
+    books = read_books_data
+    if books.empty?
+      puts "There are no label in the catalog, please add some books\n"
+    else
+      books.each_with_index do |book, index|
+        puts "\r#{index + 1}) Label title: #{book['label_title']} || Label color: #{book['label_color']} ||"
+      end
+    end
   end
 
   def list_all_authors

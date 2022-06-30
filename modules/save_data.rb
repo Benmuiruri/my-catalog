@@ -11,7 +11,7 @@ module SaveData
       books_array <<
         { class_instance: 'Book', id: book.id, name: book.name,
           publisher: book.publisher, cover_state: book.cover_state,
-          publish_date: book.publish_date, label_title: book.label.title, label_color: book.label.color}
+          publish_date: book.publish_date, label_title: book.label.title, label_color: book.label.color }
     end
     File.write('./json_files/books.json', JSON.generate(books_array))
   end
