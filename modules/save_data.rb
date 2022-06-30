@@ -2,8 +2,18 @@ require 'json'
 require 'pry'
 
 module SaveData
-  def self.save_books
-    puts 'Book saved'
+  def self.save_books(books)
+    File.write('./json_files/books.json', []) unless File.exist?('./json_files/books.json')
+    File.write('./json_files/books.json', []) if File.empty?('./json_files/books.json')
+    books_array = JSON.parse(File.read('./json_files/books.json'))
+
+    books.map do |book|
+      books_array <<
+        { class_instance: 'Book', id: book.id, name: book.name,
+          publisher: book.publisher, cover_state: book.cover_state,
+          publish_date: book.publish_date, label_title: book.label.title, label_color: book.label.color}
+    end
+    File.write('./json_files/books.json', JSON.generate(books_array))
   end
 
   def self.save_games
