@@ -28,7 +28,7 @@ describe MusicAlbum do
 
   context 'When archiving a music_album older than 10 years' do
     it 'is not archivable' do
-      @music_album.publish_date =  Date.strptime('2003-02-10', '%Y-%m-%d')
+      @music_album.publish_date = Date.strptime('2003-02-10', '%Y-%m-%d')
       can_be_archived = @music_album.can_be_archived?
       expect(can_be_archived).to be_falsey
     end
