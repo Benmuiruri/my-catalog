@@ -21,7 +21,7 @@ describe Label do
 
   context 'When adding a book into a label' do
     it 'adds the book into a specific label' do
-      @label.add_book_to_items(@book)
+      @label.add_items(@book)
       expect(@label.items).to include(@book)
       expect(@label.items.length).to eq(1)
     end
