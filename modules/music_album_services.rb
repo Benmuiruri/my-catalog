@@ -60,7 +60,6 @@ module MusicAlbumServices
     album_name = music_album_data('Name')
     artist_name = music_album_data('Artist Name')
     publish_date = valid_date
-    binding.pry
     genre_name = genre_data('Genre')
     on_spotify = spotify_listing
 

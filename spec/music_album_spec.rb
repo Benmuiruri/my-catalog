@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'date'
-require 'pry'
 
 describe MusicAlbum do
   before :each do
