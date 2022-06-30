@@ -1,5 +1,6 @@
 require_relative '../lib/book'
 require_relative '../lib/label'
+require_relative 'save_data'
 require 'date'
 
 module BooksServices
@@ -43,16 +44,19 @@ module BooksServices
   end
 
   def add_book
+    books = []
     book_name = get_input_book('name')
     publisher_name = get_input_book('publisher name')
     cover_state = get_input_book('cover state')
     publish_date = valid_date
-    label_color = get_input_label('color')
     label_title = get_input_label('title')
+    label_color = get_input_label('color')
 
     book = Book.new(book_name, publisher_name, cover_state, publish_date)
     puts "Book #{book_name} created successfully"
     label = Label.new(label_title, label_color)
     book.add_label(label)
+    books << book
+    SaveData.save_books(books)
   end
 end
