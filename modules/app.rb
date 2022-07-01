@@ -21,7 +21,7 @@ class App
   def app_description
     puts " Welcome to The Catalog of Items 😎 !\n\n".colorize(:light_blue)
     sleep 0.5
-    puts "Please choose an option by entering a number:".colorize(:light_blue)
+    puts 'Please choose an option by entering a number:'.colorize(:light_blue)
     puts '1 - List all books'
     puts '2 - List all music albums'
     puts '3 - List all games'
@@ -51,7 +51,7 @@ class App
     when 10
       puts "Thank you for using the Catalog of Items 👍\n".colorize(:green)
       sleep 0.5
-      puts "Goodbye, See you next Time 😀".colorize(:magenta)
+      puts 'Goodbye, See you next Time 😀'.colorize(:magenta)
       exit
     else
       puts 'Please enter a correct option'

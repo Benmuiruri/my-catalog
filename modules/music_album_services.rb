@@ -27,6 +27,7 @@ module MusicAlbumServices
       print 'Enter book publish date (yyyy-mm-dd): '
       input_date = gets.chomp
       return input_date if valid_date_string?(input_date)
+
       puts "Invalid date format given. Please try again...\n".colorize(:red)
     end
     input_date
