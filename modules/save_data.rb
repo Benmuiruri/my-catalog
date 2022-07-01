@@ -2,9 +2,13 @@ require 'json'
 require 'pry'
 
 module SaveData
+  def self.file_init(items)
+    File.write("./json_files/#{items}.json", []) unless File.exist?("./json_files/#{items}.json")
+    File.write("./json_files/#{items}.json", []) if File.empty?("./json_files/#{items}.json")
+  end
+
   def self.save_books(books)
-    File.write('./json_files/books.json', []) unless File.exist?('./json_files/books.json')
-    File.write('./json_files/books.json', []) if File.empty?('./json_files/books.json')
+    file_init('books')
     books_array = JSON.parse(File.read('./json_files/books.json'))
 
     books.map do |book|
@@ -30,7 +34,7 @@ module SaveData
   end
 
   def self.save_music_albums(music_albums)
-    File.write('./json_files/music_albums.json', []) if File.empty?('./json_files/music_albums.json')
+    file_init('music_albums')
     music_albums_array = JSON.parse(File.read('./json_files/music_albums.json'))
 
     music_albums.map do |music_album|
