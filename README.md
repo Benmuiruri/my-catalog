@@ -1,16 +1,35 @@
-# my-catalog
 ![](https://img.shields.io/badge/Microverse-blueviolet)
+# Ruby Group Capstone Project - My Catalog App
 
-> This repo contains a ruby console app that allows you to keep track of a catalog of things including books, music albums, movies, and games.
-> The data entered will be stored in JSON files 
+> This repo contains a ruby console app that allows you to keep track of a catalog of things including books, music albums, movies, and games. The project is based on a UML class diagram. The structure of Database schema is analogical to our program's class structure.
+> The data entered is stored in JSON files 
+
+## Project Demo Video
+[Group Project Demo Video](https://drive.google.com/file/d/14G0YJsd_-xQ-OL3ls4XpRD0kDp-NpYuG/view?usp=sharing)
 
 ## Built With
 
 - **Ruby**
+
+## Methodology used 
+- TDD via RSPEC
   
 ## Getting Started
+To get a local copy up and running follow these simple example steps.
 
-Clone the project, make sure you have ruby installed and you are good to go to interact with the app. Enjoy.
+- Clone the project
+`https://github.com/Benmuiruri/my-catalog.git`
+- navigate to the folder
+`cd my-catalog`
+- make sure you have ruby installed and run bundle to get the required gems
+`bundle install`
+- and you are good to go to interact with the app. 
+`ruby main.rb`
+- run the tests and linters
+`rspec`
+`rubocop -A`
+
+- Enjoy.
 
 ## Authors
 
@@ -40,3 +59,6 @@ Feel free to check the [issues page](https://github.com/Benmuiruri/my-catalog/is
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
+## Acknowledgments
+Hat tip to anyone whose code inspired our project
