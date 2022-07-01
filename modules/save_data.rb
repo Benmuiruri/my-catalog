@@ -29,7 +29,6 @@ module SaveData
     File.write('./json_files/games.json', JSON.generate(games_array))
   end
 
-
   def self.save_music_albums(music_albums)
     File.write('./json_files/music_albums.json', []) if File.empty?('./json_files/music_albums.json')
     music_albums_array = JSON.parse(File.read('./json_files/music_albums.json'))

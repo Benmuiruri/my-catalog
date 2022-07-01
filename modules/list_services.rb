@@ -79,7 +79,7 @@ module ListServices
       end
     end
   end
-  
+
   def read_games_data
     File.write('./json_files/games.json', '[]') unless File.exist?('./json_files/games.json')
     JSON.parse(File.read('./json_files/games.json'))
@@ -110,5 +110,4 @@ module ListServices
       end
     end
   end
-
 end
