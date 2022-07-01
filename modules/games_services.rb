@@ -1,8 +1,11 @@
 require_relative '../lib/game'
 require_relative '../lib/author'
+require_relative 'save_data'
+require 'pry'
 
 module GamesServices
   include SaveData
+
   def get_input_author(input)
     output = ''
     while output.empty?
@@ -12,6 +15,7 @@ module GamesServices
     end
     output
   end
+
   def get_input_game(input)
     output = ''
     while output.empty?
@@ -21,12 +25,14 @@ module GamesServices
     end
     output
   end
+
   def valid_date_string?(input)
     return false unless input.is_a?(String)
     return false unless input =~ /\A\d+-\d+-\d+\z/
     parts = input.split('-').map(&:to_i)
     Date.valid_date?(*parts)
   end
+
   def validate_date(input)
     input_date = ''
     while input_date.empty? || !valid_date_string?(input_date)
@@ -36,6 +42,7 @@ module GamesServices
       puts 'Invalid date given. Please try again...'
     end
   end
+
   def add_game
     games = []
     game_name = get_input_game('name')
