@@ -21,8 +21,7 @@ module SaveData
   end
 
   def self.save_games(games)
-    File.write('./json_files/games.json', []) unless File.exist?('./json_files/games.json')
-    File.write('./json_files/games.json', []) if File.empty?('./json_files/games.json')
+    file_init('games')
     games_array = JSON.parse(File.read('./json_files/games.json'))
     games.map do |game|
       games_array <<
