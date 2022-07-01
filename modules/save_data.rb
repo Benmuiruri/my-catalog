@@ -21,8 +21,9 @@ module SaveData
     File.write('./json_files/games.json', []) if File.empty?('./json_files/games.json')
     games_array = JSON.parse(File.read('./json_files/games.json'))
     games.map do |game|
+      binding.pry
       games_array <<
-        { class_instance: 'Game', id: game.id, game_name: game.game_name, multiplayer: game.multiplayer,
+        { class_instance: 'Game', id: game.id, name: game.name, multiplayer: game.multiplayer,
           last_played_at: game.last_played_at, publish_date: game.publish_date,
           first_name: game.author.first_name, last_name: game.author.last_name }
     end
