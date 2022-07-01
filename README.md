@@ -1,5 +1,5 @@
-# my-catalog
 ![](https://img.shields.io/badge/Microverse-blueviolet)
+# Ruby Group Capstone Project - My Catalog App
 
 > This repo contains a ruby console app that allows you to keep track of a catalog of things including books, music albums, movies, and games.
 > The data entered will be stored in JSON files 

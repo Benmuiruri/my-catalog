@@ -55,7 +55,7 @@ module ListServices
   end
 
   def list_all_genres
-    music_albums = read_music_album_data
+    music_albums = read_file('music_albums')
     if music_albums.empty?
       puts "There are no genres in the catalog, please add some music albums\n"
     else
@@ -66,7 +66,7 @@ module ListServices
   end
 
   def list_all_labels
-    books = read_books_data
+    books = read_file('books')
     if books.empty?
       puts "There are no label in the catalog, please add some books\n"
     else
@@ -92,7 +92,7 @@ module ListServices
   end
 
   def list_all_authors
-    games = read_games_data
+    games = read_file('games')
     if games.empty?
       puts "There are no author in the catalog, please add some authors\n"
     else
