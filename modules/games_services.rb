@@ -1,7 +1,8 @@
 require_relative '../lib/game'
 require_relative '../lib/author'
-require 'date'
+
 module GamesServices
+  include SaveData
   def get_input_author(input)
     output = ''
     while output.empty?
@@ -36,8 +37,7 @@ module GamesServices
     end
   end
   def add_game
-    puts 'Awesome Let\'s add a game'
-    sleep 0.5
+    games = []
     game_name = get_input_game('name')
     multiplayer = get_input_game('multiplayer')
     last_played_at = validate_date('last played')
@@ -48,5 +48,7 @@ module GamesServices
     puts "Game #{game_name} created successfully"
     author = Author.new(first_name, last_name)
     game.add_author(author)
+    games << game
+    SaveData.save_games(games)
   end
 end
