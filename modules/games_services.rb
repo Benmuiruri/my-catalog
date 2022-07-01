@@ -29,6 +29,7 @@ module GamesServices
   def valid_date_string?(input)
     return false unless input.is_a?(String)
     return false unless input =~ /\A\d+-\d+-\d+\z/
+
     parts = input.split('-').map(&:to_i)
     Date.valid_date?(*parts)
   end
@@ -39,6 +40,7 @@ module GamesServices
       print "Enter Game #{input} date (yyyy-mm-dd): "
       input_date = gets.chomp
       return input_date if valid_date_string?(input_date)
+
       puts 'Invalid date given. Please try again...'
     end
   end
