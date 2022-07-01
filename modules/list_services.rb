@@ -19,13 +19,14 @@ module ListServices
     end
   end
 
-  def read_books_data
-    File.write('./json_files/books.json', '[]') unless File.exist?('./json_files/books.json')
+  def read_file(items)
+    File.write("./json_files/#{items}.json", []) unless File.exist?("./json_files/#{items}.json")
+    File.write("./json_files/#{items}.json", []) if File.empty?("./json_files/#{items}.json")
     JSON.parse(File.read('./json_files/books.json'))
   end
 
   def list_all_books
-    books = read_books_data
+    books = read_file('books')
     if books.empty?
       puts "There are no books in the catalog, please add some books\n"
     else
@@ -39,13 +40,8 @@ module ListServices
     end
   end
 
-  def read_music_album_data
-    File.write('./json_files/music_albums.json', '[]') unless File.exist?('./json_files/music_albums.json')
-    _music_albums = JSON.parse(File.read('./json_files/music_albums.json'))
-  end
-
   def list_all_music_albums
-    music_albums = read_music_album_data
+    music_albums = read_file('music_albums')
     if music_albums.empty?
       puts "There are no music albums in the catalog, please add some music albums\n"
     else
@@ -80,13 +76,8 @@ module ListServices
     end
   end
 
-  def read_games_data
-    File.write('./json_files/games.json', '[]') unless File.exist?('./json_files/games.json')
-    JSON.parse(File.read('./json_files/games.json'))
-  end
-
   def list_all_games
-    games = read_games_data
+    games = read_file('games')
     if games.empty?
       puts "There are no games in the catalog, please add some games\n"
     else
