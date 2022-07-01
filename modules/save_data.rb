@@ -16,8 +16,17 @@ module SaveData
     File.write('./json_files/books.json', JSON.generate(books_array))
   end
 
-  def self.save_games
-    puts 'Games saved'
+  def self.save_games(games)
+    File.write('./json_files/games.json', []) unless File.exist?('./json_files/games.json')
+    File.write('./json_files/games.json', []) if File.empty?('./json_files/games.json')
+    games_array = JSON.parse(File.read('./json_files/games.json'))
+    games.map do |game|
+      games_array <<
+        { class_instance: 'Game', id: game.id, name: game.name, multiplayer: game.multiplayer,
+          last_played_at: game.last_played_at, publish_date: game.publish_date,
+          first_name: game.author.first_name, last_name: game.author.last_name }
+    end
+    File.write('./json_files/games.json', JSON.generate(games_array))
   end
 
   def self.save_music_albums(music_albums)

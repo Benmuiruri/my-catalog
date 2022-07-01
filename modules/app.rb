@@ -45,6 +45,8 @@ class App
       sleep 0.5
       add_music_album
     when 9
+      puts 'Awesome Let\'s add a game 🏈'
+      sleep 0.5
       add_game
     when 0
       puts "Thank you for using the Catalog of Items\n"

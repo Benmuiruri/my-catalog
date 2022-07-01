@@ -9,7 +9,7 @@ class Author
   end
 
   def add_items(game)
-    @items.push(game)
+    @items << game
     game.add_author(self)
   end
 end
