@@ -10,7 +10,17 @@
   
 ## Getting Started
 
-Clone the project, make sure you have ruby installed and you are good to go to interact with the app. Enjoy.
+- Clone the project
+`https://github.com/Benmuiruri/my-catalog.git`
+- navigate to the folder
+`cd my-catalog`
+- make sure you have ruby installed and bundle
+`bundle install`
+- and you are good to go to interact with the app. 
+`ruby main.rb`
+- run the tests
+`rspec`
+- Enjoy.
 
 ## Authors
 
