@@ -1,7 +1,6 @@
 require_relative '../lib/book'
 require_relative '../lib/label'
 require_relative 'save_data'
-require 'date'
 
 module BooksServices
   def get_input_label(input)
@@ -9,7 +8,7 @@ module BooksServices
     while output.empty?
       print "Enter #{input} of the label for the book: "
       output = gets.chomp
-      puts "Label #{input}  cannot be blank, please enter a valid label #{input} " if output.empty?
+      puts "Label #{input}  cannot be blank, please enter a valid label #{input}\n".colorize(:red) if output.empty?
     end
     output
   end
@@ -19,7 +18,7 @@ module BooksServices
     while output.empty?
       print "Enter the #{input} of the book: "
       output = gets.chomp
-      puts "Book #{input}  cannot be blank, please enter a valid #{input} " if output.empty?
+      puts "Book #{input}  cannot be blank, please enter a valid #{input}\n".colorize(:red) if output.empty?
     end
     output
   end
@@ -38,7 +37,7 @@ module BooksServices
       input_date = gets.chomp
       return input_date if valid_date_string?(input_date)
 
-      puts 'Invalid date given. Please try again...'
+      puts "Invalid date given. Please try again...\n".colorize(:red)
     end
     input_date
   end
@@ -53,7 +52,8 @@ module BooksServices
     label_color = get_input_label('color')
 
     book = Book.new(book_name, publisher_name, cover_state, publish_date)
-    puts "Book #{book_name} created successfully"
+    puts "Book #{book_name} created successfully\n".colorize(:green)
+    sleep 0.5
     label = Label.new(label_title, label_color)
     book.add_label(label)
     books << book
